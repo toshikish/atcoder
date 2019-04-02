@@ -1,10 +1,11 @@
 N = int(input())
 A = list(map(int, input().split()))
-powers = []
+
+ans = 10 ** 9
 for a in A:
-    power = 0
+    cnt = 0
     while a % 2 == 0:
-        a /= 2
-        power += 1
-    powers.append(power)
-print(min(powers))
+        cnt += 1
+        a //= 2
+    ans = min(ans, cnt)
+print(ans)
