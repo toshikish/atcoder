@@ -1,14 +1,19 @@
 from collections import defaultdict
-N, M = map(int, input().split())
-cities = []
-prefs = defaultdict(list)
-for i in range(M):
-    city = tuple(map(int, input().split()))
-    cities.append(city)
-    prefs[city[0]].append(city[1])
 
-for pref in prefs.values():
-    pref.sort()
-for c in cities:
-    x = prefs[c[0]].index(c[1]) + 1
-    print('{:06}{:06}'.format(c[0], x))
+N, M = map(int, input().split())
+years = defaultdict(list)
+Q = []
+for i in range(M):
+    P, Y = map(int, input().split())
+    years[P].append(Y)
+    Q.append((P, Y))
+
+rev_list = {}
+for P, Y in years.items():
+    Y.sort()
+    rev_list[P] = {}
+    for i in range(len(Y)):
+        rev_list[P][Y[i]] = i + 1
+
+for q in Q:
+    print('{:06}{:06}'.format(q[0], rev_list[q[0]][q[1]]))
