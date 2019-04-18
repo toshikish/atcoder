@@ -1,16 +1,13 @@
 from collections import defaultdict
+
 n = int(input())
 V = list(map(int, input().split()))
-
-def modification(d):
-    d_keys = list(d.values())
-    if len(d_keys) == 1:
-        return 0
-    d_keys.sort(reverse=True)
-    return int(n / 2) - d_keys[0]
-
+ 
+def mode(d):
+    return sorted(d.items(), key=lambda x: x[1], reverse=True)
+ 
 if len(set(V)) == 1:
-    print(int(n / 2))
+    ans = n // 2
 else:
     o = defaultdict(int)
     e = defaultdict(int)
@@ -19,4 +16,10 @@ else:
             e[V[i]] += 1
         else:
             o[V[i]] += 1
-    print(modification(o) + modification(e))
+    mode_o = mode(o)
+    mode_e = mode(e)
+    if mode_o[0][0] != mode_e[0][0]:
+        ans = n - mode_o[0][1] - mode_e[0][1]
+    else:
+        ans = min(n - mode_o[0][1] - mode_e[1][1], n - mode_o[1][1] - mode_e[0][1])
+print(ans)
