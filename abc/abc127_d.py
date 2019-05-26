@@ -11,7 +11,6 @@ for i in range(M):
 
 res = N
 ans = 0
-print(sorted(d.items(), reverse=True))
 for k, v in sorted(d.items(), reverse=True):
     ans += k * min(v, res)
     res -= v
