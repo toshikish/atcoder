@@ -14,4 +14,6 @@ else:
         ans = max(ans, r - l)
         if l < r:
             p //= s[l]
+        else:
+            r += 1
 print(ans)
