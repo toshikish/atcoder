@@ -6,10 +6,8 @@ ans = 0
 while res > 0:
     ans += (N // (base * 10)) * base
     r = N % (base * 10) + 1
-    if base <= r < 2 * base:
-        ans += r - base
-    elif r >= 2 * base:
-        ans += base
+    if r >= base:
+        ans += min(r - base, base)
     base *= 10
     res //= 10
 print(ans)
