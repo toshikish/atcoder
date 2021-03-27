@@ -1,10 +1,8 @@
 from math import sin, cos, pi
 
 N = int(input())
-x0, y0 = map(int, input().split())
-p0 = complex(x0, y0)
-xh, yh = map(int, input().split())
-ph = complex(xh, yh)
+p0 = complex(*list(map(int, input().split())))
+ph = complex(*list(map(int, input().split())))
 
 pm = (p0 + ph) / 2
 theta = 2 * pi / N
