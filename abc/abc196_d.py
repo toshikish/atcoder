@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 H, W, A, B = map(int, input().split())
 
 HW = H * W
