@@ -15,7 +15,6 @@ for _ in range(M):
 
 def f(t, C, D):
     if (t + 1) * (t + 1) >= D:
-        td = t
         return t + C + D // (t + 1)
     t1 = isqrt(D) - 1
     t2 = t1 + 1
