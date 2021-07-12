@@ -1,3 +1,6 @@
+from sys import stdin
+input = stdin.readline
+
 H, W, N, M = map(int, input().split())
 S = [['.'] * W for _ in range(H)]
 L = []
